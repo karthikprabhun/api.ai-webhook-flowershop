@@ -22,7 +22,7 @@ app
 							"content-type" : "application/json;charset=utf-8",
 							"authorization" : "Basic NDE4ODQyOjB0RU5Fdw==",
 							 "Content-Length": "778"
-
+								 
 						}
 					};
 
@@ -37,10 +37,14 @@ app
 						res.on("end", function() {
 							var body = Buffer.concat(chunks);
 							console.log(body.toString());
-						
+							//response.writeHead(200,{"content-type" : "application/json"});
 							//response.setHeader("Content-Type", "text/json");
-							response.writeHead(200,{"content-type" : "application/json"});
-							response.send(body.toString());
+							
+							 
+							 
+							response.send({speech: 'speech',
+							        displayText: 'speech',
+							        source: 'webhook-echo-sample'} );
 						});
 						
 						res.on("error", function() {
