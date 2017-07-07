@@ -1,0 +1,158 @@
+{
+  "id": "a6f988e3-3355-4c89-8c5b-0f63cbf90115",
+  "timestamp": "2017-07-06T14:05:25.318Z",
+  "lang": "en",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "yes",
+    "action": "checkout",
+    "actionIncomplete": false,
+    "parameters": {},
+    "contexts": [
+      {
+        "name": "address-deilvery-address-followup-no",
+        "parameters": {
+          "phone-number": "",
+          "email.original": "",
+          "address": "",
+          "zip-code.original": "",
+          "phone-number.original": "",
+          "address.original": "",
+          "given-name.original": "",
+          "last-name.original": "",
+          "street-address": "",
+          "given-name": "Sam",
+          "zip-code": "92712",
+          "street-address.original": "",
+          "email": "",
+          "last-name": ""
+        },
+        "lifespan": 4
+      },
+      {
+        "name": "address-deilvery-address-no-followup",
+        "parameters": {
+          "phone-number": "",
+          "email.original": "",
+          "address": "",
+          "zip-code.original": "",
+          "phone-number.original": "",
+          "address.original": "",
+          "given-name.original": "",
+          "last-name.original": "",
+          "street-address": "",
+          "given-name": "Sam",
+          "zip-code": "92712",
+          "street-address.original": "",
+          "email": "",
+          "last-name": ""
+        },
+        "lifespan": 1
+      },
+      {
+        "name": "product-confirm",
+        "parameters": {
+          "phone-number": "",
+          "email.original": "",
+          "Products": [
+            "T18-1A"
+          ],
+          "address": "",
+          "zip-code.original": "",
+          "geo-country1.original": "",
+          "phone-number.original": "",
+          "address.original": "",
+          "geo-country": "",
+          "given-name.original": "",
+          "geo-country1": "geo-country1",
+          "last-name.original": "",
+          "geo-country.original": "",
+          "street-address": "",
+          "Products.original": "Teleflora's Simply Sweet",
+          "given-name": "Sam",
+          "zip-code": "92712",
+          "street-address.original": "",
+          "email": "",
+          "last-name": ""
+        },
+        "lifespan": 2
+      },
+      {
+        "name": "address-out-context",
+        "parameters": {
+          "phone-number": "",
+          "email.original": "",
+          "address": "",
+          "zip-code.original": "",
+          "geo-country1.original": "",
+          "phone-number.original": "",
+          "address.original": "",
+          "geo-country": "",
+          "given-name.original": "",
+          "geo-country1": "geo-country1",
+          "last-name.original": "",
+          "geo-country.original": "",
+          "street-address": "",
+          "given-name": "Sam",
+          "zip-code": "92712",
+          "street-address.original": "",
+          "email": "",
+          "last-name": ""
+        },
+        "lifespan": 3
+      },
+      {
+        "name": "product-in-context",
+        "parameters": {
+          "phone-number": "",
+          "email.original": "",
+          "Products": [
+            "T18-1A"
+          ],
+          "address": "",
+          "zip-code.original": "",
+          "geo-country1.original": "",
+          "phone-number.original": "",
+          "address.original": "",
+          "geo-country": "",
+          "given-name.original": "",
+          "geo-country1": "geo-country1",
+          "last-name.original": "",
+          "geo-country.original": "",
+          "street-address": "",
+          "Products.original": "Teleflora's Simply Sweet",
+          "given-name": "Sam",
+          "zip-code": "92712",
+          "street-address.original": "",
+          "email": "",
+          "last-name": ""
+        },
+        "lifespan": 4
+      }
+    ],
+    "metadata": {
+      "intentId": "e606d5dc-579d-454a-a35e-2e89daab0a1e",
+      "webhookUsed": "true",
+      "webhookForSlotFillingUsed": "false",
+      "webhookResponseTime": 899,
+      "intentName": "address-deilvery-address-no - yes(checkout)"
+    },
+    "fulfillment": {
+      "speech": "speech",
+      "source": "webhook-echo-sample",
+      "displayText": "speech",
+      "messages": [
+        {
+          "type": 0,
+          "speech": "speech"
+        }
+      ]
+    },
+    "score": 0.7512751139426135
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "bd39ac24-2b30-41ec-9d21-1ad7e710837e"
+}
