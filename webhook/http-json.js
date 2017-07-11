@@ -1,5 +1,8 @@
 var http = require('request');
 
+var data = JSON.stringify({
+	  firstName: 'JoaquÌn',
+	});
 
 module.exports.post = function(req, callback) {
     if(typeof req !=  'string')
@@ -8,11 +11,11 @@ module.exports.post = function(req, callback) {
 console.log("testing here");
 
     var requestBody = {
-    		uri: 'http://kaprthikprabhu-prod.apigee.net/webhook-flower',
+    		uri: 'http://www.floristone.com/api/rest/flowershop/placeorder',
 			headers : {
 				"content-type" : "application/json;charset=utf-8",
 				"authorization" : "Basic NDE4ODQyOjB0RU5Fdw==",
-				 "Content-Length": "778"
+				 "CContent-Length": Buffer.byteLength(data)
 				},
 			body: req
     };

@@ -9,7 +9,7 @@ var Product = function(parameters) {
 			deliverydate : '',
 			cardmessage : '',
 			specialinstructions : '',
-			recipient : []
+			recipent : ''
 		}
 	}
 	
@@ -18,9 +18,11 @@ var Product = function(parameters) {
 		this.deliverydate = parameters.deliverydate;
 		this.cardmessage = parameters.cardmessage;
 		this.specialinstructions = parameters.specialinstructions;
+		this.recipent = parameters.recipent;
 		
-		if (parameters['recipient']) {
-			var Recipent = parameters.recipient;
+		
+		/*if (parameters['recipent']) {
+			var Recipent = parameters.recipent;
 
 			this.name = Recipent.name;
 			this.institution = Recipent.institution;
@@ -32,7 +34,7 @@ var Product = function(parameters) {
 			this.phone = Recipent.phone;
 			this.zipcode = Recipent.zipcode;
 			return this;
-		}
+		}*/
 
 }
 
