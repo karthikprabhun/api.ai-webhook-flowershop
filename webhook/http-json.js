@@ -1,25 +1,27 @@
 var http = require('request');
 
 var data = JSON.stringify({
-	  firstName: 'JoaquÌn',
+	  firstName: 'JoaquÌnssssssssssssssssssssssssssssssssss',
+	  cource:"jkndkjsdjsdsdsdsds",
+	  name:"kndkndksnkdsndskds"
+	  
 	});
 
 module.exports.post = function(req, callback) {
     if(typeof req !=  'string')
         req = JSON.stringify(req);
-    
-console.log("testing here");
 
-    var requestBody = {
-    		uri: 'http://www.floristone.com/api/rest/flowershop/placeorder',
+    var options = {
+    		uri: 'https://kaprthikprabhu-prod.apigee.net/webhook-flower',
+    		method: 'POST',
 			headers : {
 				"content-type" : "application/json;charset=utf-8",
-				"authorization" : "Basic NDE4ODQyOjB0RU5Fdw==",
-				 "CContent-Length": Buffer.byteLength(data)
+				"authorization" : "Basic NDE4ODQyOjB0RU5Fdw=="
+				
 				},
 			body: req
     };
-    http.post(requestBody, function (error, res, body) {
+  var req = http.post(options, function (error, res, body) {	
     	
       if (error) {
           return callback({
@@ -38,6 +40,7 @@ console.log("testing here");
 
       try {
           var parsed = JSON.parse(body);
+          console.log(parsed)
       }
       catch(error){
         console.log(error);
@@ -51,7 +54,10 @@ console.log("testing here");
           success: true,
           result: parsed
       });
+      req.end();
   });
+    
+
 }
 
 /*module.exports.get = function(url, callback){

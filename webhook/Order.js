@@ -4,12 +4,13 @@ var Order = function(parameters) {
 	if (!parameters) {
 		parameters = {}
 	}
-
+	
 	prod = {};
 	this.products = [];
 	this.customer = {};
 	this.ccinfo = {};
-	this.ordertotal = '64.94';
+	this.recipient = {};
+	this.ordertotal = 64.94;
 
 	/*
 	 * // default order this.code = ''; this.price = ''; this.deliverydate = '';
@@ -32,7 +33,7 @@ var Order = function(parameters) {
 	this.customer.ip = '';
 
 	this.ccinfo.type = '';
-	this.ccinfo.ccnum = '1234512345123455';
+	this.ccinfo.ccnum = 1234512345123455;
 	this.ccinfo.cvv2 = '';
 	this.ccinfo.expmonth = '';
 	this.ccinfo.expyear = '';
@@ -45,20 +46,20 @@ var Order = function(parameters) {
 		prod.deliverydate = product.deliverydate;
 		prod.cardmessage = product.cardmessage;
 		prod.specialinstructions = product.specialinstructions;
-		prod.recipent = product.recipent
+		prod.recipient = product.recipient
 
-		if (product['recipent']) {
-			var recipent = product.recipent;
+		if (product['recipient']) {
+			var recipient = product.recipent;
 
-			name = recipent.name;
-			institution = recipent.institution;
-			address1 = recipent.address1;
-			address2 = recipent.address2;
-			city = recipent.city;
-			state = recipent.state;
-			country = recipent.country;
-			phone = recipent.phone;
-			zipcode = recipent.zipcode;
+			name = recipient.name;
+			institution = recipient.institution;
+			address1 = recipient.address1;
+			address2 = recipient.address2;
+			city = recipient.city;
+			state = recipient.state;
+			country = recipient.country;
+			phone = recipient.phone;
+			zipcode = recipient.zipcode;
 
 		}
 
@@ -90,17 +91,25 @@ var Order = function(parameters) {
 		this.ccinfo.cvv2 = ccinfo.cvv2;
 		this.ccinfo.expmonth = ccinfo.expmonth;
 		this.ccinfo.expyear = ccinfo.expyear;
-		return this;
 
 	}
 
 }
 
 Order.prototype.placeOrder = function(callback) {
-
-	var stringified = JSON.stringify(this);
-	console.log(stringified);
-	httpJson.post(stringified, callback);
+	var obj = new Object();
+	
+	obj['products'] = JSON.stringify(this.products);
+	obj['customer'] = JSON.stringify(this.customer);
+	
+	obj['ccinfo'] = JSON.stringify(this.ccinfo);
+	obj['ordertotal'] = JSON.stringify(this.ordertotal);
+	
+	console.log(JSON.stringify(obj));
+	
+	stringified  = JSON.stringify(obj);
+	
+	 httpJson.post(stringified, callback);
 
 };
 
