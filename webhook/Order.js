@@ -4,22 +4,30 @@ var Order = function(parameters) {
 	if (!parameters) {
 		parameters = {}
 	}
-	
-	prod = {};
+
+	this.prod = {};
 	this.products = [];
 	this.customer = {};
 	this.ccinfo = {};
 	this.recipient = {};
-	this.ordertotal = 64.94;
-
-	/*
-	 * // default order this.code = ''; this.price = ''; this.deliverydate = '';
-	 * this.cardmessage = ''; this.specialinstructions = '';
-	 * 
-	 * this.name = ''; this.institution = ''; this.address1 = ''; this.address2 =
-	 * ''; this.city = ''; this.state = ''; this.country = ''; this.phone = '';
-	 * this.zipcode = '';
-	 */
+	
+	
+//Default value
+	this.prod.code = '';
+	this.prod.price = '';
+	this.prod.deliverydate = '';
+	this.prod.cardmessage = '';
+	this.prod.specialinstructions = '';
+	this.prod.recipient = this.recipient;
+	this.recipient.name = '';
+	this.recipient.institution = '';
+	this.recipient.address1 = '';
+	this.recipient.address2 = '';
+	this.recipient.city = '';
+	this.recipient.state = '';
+	this.recipient.country = '';
+	this.recipient.phone = '';
+	this.recipient.zipcode = '';
 
 	this.customer.name = '';
 	this.customer.address1 = '';
@@ -37,35 +45,36 @@ var Order = function(parameters) {
 	this.ccinfo.cvv2 = '';
 	this.ccinfo.expmonth = '';
 	this.ccinfo.expyear = '';
-
+	this.ordertotal = 64.94;
+	
 	if (parameters['products']) {
 		product = parameters.products;
 
-		prod.code = product.code;
-		prod.price = product.price;
-		prod.deliverydate = product.deliverydate;
-		prod.cardmessage = product.cardmessage;
-		prod.specialinstructions = product.specialinstructions;
-		prod.recipient = product.recipient
+		this.prod.code = product.code;
+		this.prod.price = product.price;
+		this.prod.deliverydate = product.deliverydate;
+		this.prod.cardmessage = product.cardmessage;
+		this.prod.specialinstructions = product.specialinstructions;
+		this.prod.recipient = product.recipient
 
 		if (product['recipient']) {
 			var recipient = product.recipent;
 
-			name = recipient.name;
-			institution = recipient.institution;
-			address1 = recipient.address1;
-			address2 = recipient.address2;
-			city = recipient.city;
-			state = recipient.state;
-			country = recipient.country;
-			phone = recipient.phone;
-			zipcode = recipient.zipcode;
+			this.recipient.name = recipient.name;
+			this.recipient.institution = recipient.institution;
+			this.recipient.address1 = recipient.address1;
+			this.recipient.address2 = recipient.address2;
+			this.recipient.city = recipient.city;
+			this.recipient.state = recipient.state;
+			this.recipient.country = recipient.country;
+			this.recipient.phone = recipient.phone;
+			this.recipient.zipcode = recipient.zipcode;
 
 		}
 
 	}
 
-	this.products.push(prod);
+	this.products.push(this.prod);
 
 	if (parameters['customer']) {
 		var customer = parameters.customer;
@@ -98,18 +107,18 @@ var Order = function(parameters) {
 
 Order.prototype.placeOrder = function(callback) {
 	var obj = new Object();
-	
+
 	obj['products'] = JSON.stringify(this.products);
 	obj['customer'] = JSON.stringify(this.customer);
-	
+
 	obj['ccinfo'] = JSON.stringify(this.ccinfo);
 	obj['ordertotal'] = JSON.stringify(this.ordertotal);
-	
+
 	console.log(JSON.stringify(obj));
-	
-	stringified  = JSON.stringify(obj);
-	
-	 httpJson.post(stringified, callback);
+
+	stringified = JSON.stringify(obj);
+
+	httpJson.post(stringified, callback);
 
 };
 

@@ -7,6 +7,10 @@ var Prod = require('./Product.js');
 var Recipient = require('./Recipent.js');
 var Order = require('./Order.js');
 
+var data = require('./data.json');
+
+
+
 var cust = new Customer();
 
 var prod = new Prod();
