@@ -5,15 +5,15 @@ var Order = function(parameters) {
 		parameters = {}
 	}
 
-	this.prod = {};
+	//this.prod = {};
 	this.products = [];
 	this.customer = {};
 	this.ccinfo = {};
-	this.recipient = {};
+	//this.recipient = {};
 	
 	
 //Default value
-	this.prod.code = '';
+	/*this.prod.code = '';
 	this.prod.price = '';
 	this.prod.deliverydate = '';
 	this.prod.cardmessage = '';
@@ -27,7 +27,7 @@ var Order = function(parameters) {
 	this.recipient.state = '';
 	this.recipient.country = '';
 	this.recipient.phone = '';
-	this.recipient.zipcode = '';
+	this.recipient.zipcode = '';*/
 
 	this.customer.name = '';
 	this.customer.address1 = '';
@@ -45,9 +45,9 @@ var Order = function(parameters) {
 	this.ccinfo.cvv2 = '';
 	this.ccinfo.expmonth = '';
 	this.ccinfo.expyear = '';
-	this.ordertotal = 64.94;
+	this.ordertotal = 84.94;
 	
-	if (parameters['products']) {
+	/*if (parameters['products']) {
 		product = parameters.products;
 
 		this.prod.code = product.code;
@@ -72,9 +72,9 @@ var Order = function(parameters) {
 
 		}
 
-	}
+	}*/
 
-	this.products.push(this.prod);
+	//this.products.push(this.prod);
 
 	if (parameters['customer']) {
 		var customer = parameters.customer;
@@ -105,6 +105,10 @@ var Order = function(parameters) {
 
 }
 
+Order.prototype.addItem = function(Item) { //Add product to Order
+	this.products.push(Item);
+};
+
 Order.prototype.placeOrder = function(callback) {
 	var obj = new Object();
 
@@ -121,5 +125,7 @@ Order.prototype.placeOrder = function(callback) {
 	httpJson.post(stringified, callback);
 
 };
+
+
 
 module.exports = Order;
