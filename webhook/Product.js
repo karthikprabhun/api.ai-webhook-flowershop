@@ -14,6 +14,7 @@ var Product = function(parameters) {
 		}
 	}
 		
+	
 	this.code = parameters.code;
 	this.price = parameters.price;
 	this.deliverydate = parameters.deliverydate;
