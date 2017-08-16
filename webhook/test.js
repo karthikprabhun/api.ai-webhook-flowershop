@@ -46,6 +46,7 @@ for (var i = 0; i < total_item.length; i++) {
 	product.code = "T22-3A";
 	product.price = 59.95;
 
+	
 	product.recipient.name = "phil";
 	product.recipient.institution = "House";
 	product.recipient.address1 = "123 Big St";
