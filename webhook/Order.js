@@ -5,29 +5,9 @@ var Order = function(parameters) {
 		parameters = {}
 	}
 
-	//this.prod = {};
 	this.products = [];
 	this.customer = {};
 	this.ccinfo = {};
-	//this.recipient = {};
-	
-	
-//Default value
-	/*this.prod.code = '';
-	this.prod.price = '';
-	this.prod.deliverydate = '';
-	this.prod.cardmessage = '';
-	this.prod.specialinstructions = '';
-	this.prod.recipient = this.recipient;
-	this.recipient.name = '';
-	this.recipient.institution = '';
-	this.recipient.address1 = '';
-	this.recipient.address2 = '';
-	this.recipient.city = '';
-	this.recipient.state = '';
-	this.recipient.country = '';
-	this.recipient.phone = '';
-	this.recipient.zipcode = '';*/
 
 	this.customer.name = '';
 	this.customer.address1 = '';
@@ -45,36 +25,7 @@ var Order = function(parameters) {
 	this.ccinfo.cvv2 = '';
 	this.ccinfo.expmonth = '';
 	this.ccinfo.expyear = '';
-	this.ordertotal = 84.94;
-	
-	/*if (parameters['products']) {
-		product = parameters.products;
-
-		this.prod.code = product.code;
-		this.prod.price = product.price;
-		this.prod.deliverydate = product.deliverydate;
-		this.prod.cardmessage = product.cardmessage;
-		this.prod.specialinstructions = product.specialinstructions;
-		this.prod.recipient = product.recipient
-
-		if (product['recipient']) {
-			var recipient = product.recipent;
-
-			this.recipient.name = recipient.name;
-			this.recipient.institution = recipient.institution;
-			this.recipient.address1 = recipient.address1;
-			this.recipient.address2 = recipient.address2;
-			this.recipient.city = recipient.city;
-			this.recipient.state = recipient.state;
-			this.recipient.country = recipient.country;
-			this.recipient.phone = recipient.phone;
-			this.recipient.zipcode = recipient.zipcode;
-
-		}
-
-	}*/
-
-	//this.products.push(this.prod);
+	this.ordertotal = 134.89;
 
 	if (parameters['customer']) {
 		var customer = parameters.customer;
@@ -105,7 +56,7 @@ var Order = function(parameters) {
 
 }
 
-Order.prototype.addItem = function(Item) { //Add product to Order
+Order.prototype.addItem = function(Item) { // Add product to Order
 	this.products.push(Item);
 };
 
@@ -114,7 +65,6 @@ Order.prototype.placeOrder = function(callback) {
 
 	obj['products'] = JSON.stringify(this.products);
 	obj['customer'] = JSON.stringify(this.customer);
-
 	obj['ccinfo'] = JSON.stringify(this.ccinfo);
 	obj['ordertotal'] = JSON.stringify(this.ordertotal);
 
@@ -125,7 +75,5 @@ Order.prototype.placeOrder = function(callback) {
 	httpJson.post(stringified, callback);
 
 };
-
-
 
 module.exports = Order;

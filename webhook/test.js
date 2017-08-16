@@ -3,68 +3,85 @@
  */
 var Customer = require('./Customer.js');
 var Ccinfo = require('./Ccinfo.js');
-var Prod = require('./Product.js');
-//var Recipient = require('./Recipent.js');
+var product = require('./product.js');
 var Order = require('./Order.js');
 
 var data = require('./data.json');
 
-
-
 var cust = new Customer();
-var prod = new Prod();
-//var recipient = new Recipient();
+
 var ccinfo = new Ccinfo();
 
-cust.address1 = "123 Big Street";
+cust.name = "Robert";
+cust.address1 = "Smith james";
 cust.address2 = "";
-cust.city = "Wilmington";
+cust.city = "Austin";
+cust.state = "VA";
+cust.zipcode = "12547";
 cust.country = "US";
-cust.email = "phil@floristone.com";
+cust.phone = "987456321";
+cust.email = "efdfdfdhfkhdfk@hjsd.com";
 cust.ip = "1.1.1.1";
-cust.name = "John Doe";
-cust.state = "DE";
-cust.zipcode = "19801";
-cust.phone = "123-123-1234";
 
-prod.cardmessage = "This is a card message";
-prod.deliverydate = "2017-08-19";
-prod.specialinstructions = "Special delivery instructions go here";
-
-prod.code = "B23-4386";
-prod.price = 69.95;
-/*prod.recipient = recipient;*/
-
-
-prod.recipent.address1 = "123 Big St";
-prod.recipent.address2 = "";
-prod.recipent.name = "phil";
-prod.recipent.city = "Wilmington";
-prod.recipent.state = "DE";
-prod.recipent.country = "US";
-prod.recipent.institution = "House";
-prod.recipent.zipcode = "19805";
-prod.recipent.phone = '1234567890';
-
+ccinfo.type = 'vi';
 ccinfo.ccnum = 1234512345123455;
 ccinfo.cvv2 = 123;
 ccinfo.expmonth = 3;
 ccinfo.expyear = 19;
-ccinfo.type = 'vi';
-
-// var order = new Order({'customer':cust,'products':prod,'ccinfo':ccinfo});
-
-console.log(prod)
-
 
 var order = new Order({
-	
 	customer : cust,
 	ccinfo : ccinfo
 });
-// console.log(JSON.stringify(ccinfo))
-order.addItem({prod});
 
+var total_item = ['T22-3A','T22-3A'];
+
+var product = new product();
+
+for (var i = 0; i < total_item.length; i++) {
+	
+	product.cardmessage = "This is a card message";
+	product.deliverydate = "2017-08-19";
+	product.specialinstructions = "Special delivery instructions go here";
+	product.code = "T22-3A";
+	product.price = 59.95;
+
+	product.recipient.name = "phil";
+	product.recipient.institution = "House";
+	product.recipient.address1 = "123 Big St";
+	product.recipient.address2 = "";
+	product.recipient.city = "Wilmington";
+	product.recipient.state = "DE";
+	product.recipient.country = "US";
+	product.recipient.phone = '1234567890';
+	product.recipient.zipcode = "19805";
+
+	order.addItem(product);
+}
+
+
+/*product.cardmessage = "This is a card message";
+product.deliverydate = "2017-08-19";
+product.specialinstructions = "Special delivery instructions go here";
+product.code = "T22-3A";
+product.price = 59.95;
+
+product.recipient.name = "phil";
+product.recipient.institution = "House";
+product.recipient.address1 = "123 Big St";
+product.recipient.address2 = "";
+product.recipient.city = "Wilmington";
+product.recipient.state = "DE";
+product.recipient.country = "US";
+product.recipient.phone = '1234567890';
+product.recipient.zipcode = "19805";*/
+
+
+
+
+// console.log(JSON.stringify(ccinfo))
+
+/* order.addItem(product); */
 order.placeOrder(function(result) {
 	console.log(result)
 });
